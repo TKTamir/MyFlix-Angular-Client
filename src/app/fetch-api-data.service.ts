@@ -34,9 +34,9 @@ export class FetchApiDataService {
     );
   }
 // API POST User Login endpoint
-  public userLogin(userDetails: any): Observable<any> {
-    console.log(userDetails);
-    return this.http.post(apiUrl + 'login', userDetails).pipe(
+  public userLogin(userCredentials: any): Observable<any> {
+    console.log(userCredentials);
+    return this.http.post(apiUrl + 'login', userCredentials).pipe(
       catchError(this.handleError)
     );
   }
