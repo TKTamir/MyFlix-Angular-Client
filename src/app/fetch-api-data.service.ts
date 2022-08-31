@@ -55,7 +55,7 @@ getAllMovies(): Observable<any> {
 }
 
 // API GET a single movie endpoint
-getMovie(): Observable<any> {
+getMovie(movieId: any): Observable<any> {
   const token = localStorage.getItem('token');
   return this.http.get(apiUrl + `movies/:${movieId}`, {headers: new HttpHeaders(
     {
@@ -108,7 +108,7 @@ getUser(): Observable<any> {
   );
 }
 // API GET User's Favorite Movie
-getFavorite(): Observable<any> {
+getFavorite(movieId: any): Observable<any> {
   const token = localStorage.getItem('token');
   return this.http.get(apiUrl + `movies/:${movieId}`, {headers: new HttpHeaders(
     {
@@ -121,7 +121,7 @@ getFavorite(): Observable<any> {
   );
 }
 // API POST Add a Favorite movie to User's favorites
-addFavoriteMovie( id: any): Observable<any> {
+addFavoriteMovie( movieId: any): Observable<any> {
   const token = localStorage.getItem('token');
   const username = localStorage.getItem('user');
   return this.http.post(apiUrl + `users/username/movies/${movieId}`, {},  {
@@ -135,10 +135,10 @@ addFavoriteMovie( id: any): Observable<any> {
   );
 }
 // API PUT Edit a User's info
-editUser(userDetails:any): Observable<any> {
+editUser(userData:any): Observable<any> {
   const token = localStorage.getItem('token');
   const username = localStorage.getItem('user');
-  return this.http.put(apiUrl + `users/${username}`, userDetails,  {
+  return this.http.put(apiUrl + `users/${username}`, userData,  {
     headers: new HttpHeaders({
       Authorization: `Bearer ${token}`,
     })
@@ -163,7 +163,7 @@ deleteUser(): Observable<any> {
   );
 }
 // API DELETE a movie from User's Favorite movies
-removeFavoriteMovie(userDetails:any): Observable<any> {
+removeFavoriteMovie(movieId: any): Observable<any> {
   const token = localStorage.getItem('token');
   const username = localStorage.getItem('user');
   return this.http.delete(apiUrl + `users/${username}/movies/${movieId}`,  {
@@ -177,7 +177,7 @@ removeFavoriteMovie(userDetails:any): Observable<any> {
   );
 }
 // Non-typed response extraction
-  private extractResponseData(res: Response): any {
+  private extractResponseData(res: any): any {
     const body = res;
     return body || { };
   }
