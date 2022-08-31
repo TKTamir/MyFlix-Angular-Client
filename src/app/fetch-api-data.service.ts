@@ -5,7 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 //Declaring the api url that will provide data for the client app
-const apiUrl = 'YOUR_HOSTED_API_URL_HERE/';
+const apiUrl = 'https://appformovies.herokuapp.com//';
 @Injectable({
   providedIn: 'root'
 })
@@ -46,8 +46,13 @@ getAllMovies(): Observable<any> {
     return this.http.get(apiUrl + 'movies', {headers: new HttpHeaders(
       {
         Authorization: 'Bearer ' + token,
-      })}).pipe(map(this.extractResponseData), catchError(this.handleError));
-  }
+      })
+    })
+    .pipe(
+      map(this.extractResponseData),
+      catchError(this.handleError)
+    );
+}
 
 // API GET a single movie endpoint
 getMovie(): Observable<any> {
@@ -55,8 +60,12 @@ getMovie(): Observable<any> {
   return this.http.get(apiUrl + `movies/:${movieId}`, {headers: new HttpHeaders(
     {
       Authorization: 'Bearer ' + token,
-    })}).pipe(map(this.extractResponseData), catchError(this.handleError));
-
+    })
+  })
+  .pipe(
+    map(this.extractResponseData),
+    catchError(this.handleError)
+  );
 }
 // API GET Director endpoint
 getDirector(): Observable<any> {
@@ -64,8 +73,12 @@ getDirector(): Observable<any> {
   return this.http.get(apiUrl + `movies/director/${name}`, {headers: new HttpHeaders(
     {
       Authorization: 'Bearer ' + token,
-    })}).pipe(map(this.extractResponseData), catchError(this.handleError));
-
+    })
+  })
+  .pipe(
+    map(this.extractResponseData),
+    catchError(this.handleError)
+  );
 }
 // API GET Genre enpoint
 getGenre(): Observable<any> {
@@ -73,8 +86,12 @@ getGenre(): Observable<any> {
   return this.http.get(apiUrl + `movies/genre/:${name}`, {headers: new HttpHeaders(
     {
       Authorization: 'Bearer ' + token,
-    })}).pipe(map(this.extractResponseData), catchError(this.handleError));
-
+    })
+  })
+  .pipe(
+    map(this.extractResponseData),
+    catchError(this.handleError)
+  );
 }
 // API GET User endpoint
 getUser(): Observable<any> {
@@ -83,8 +100,12 @@ getUser(): Observable<any> {
   return this.http.get(apiUrl + 'users/' + username, {headers: new HttpHeaders(
     {
       Authorization: 'Bearer ' + token,
-    })}).pipe(map(this.extractResponseData), catchError(this.handleError));
-
+    })
+  })
+  .pipe(
+    map(this.extractResponseData),
+    catchError(this.handleError)
+  );
 }
 // API GET User's Favorite Movie
 getFavorite(): Observable<any> {
@@ -92,8 +113,12 @@ getFavorite(): Observable<any> {
   return this.http.get(apiUrl + `movies/:${movieId}`, {headers: new HttpHeaders(
     {
       Authorization: 'Bearer ' + token,
-    })}).pipe(map(this.extractResponseData), catchError(this.handleError));
-
+    })
+  })
+  .pipe(
+    map(this.extractResponseData),
+    catchError(this.handleError)
+  );
 }
 // API POST Add a Favorite movie to User's favorites
 addFavoriteMovie( id: any): Observable<any> {
@@ -102,7 +127,12 @@ addFavoriteMovie( id: any): Observable<any> {
   return this.http.post(apiUrl + `users/username/movies/${movieId}`, {},  {
     headers: new HttpHeaders({
       Authorization: `Bearer ${token}`,
-    })}).pipe(map(this.extractResponseData), catchError(this.handleError));
+    })
+  })
+  .pipe(
+    map(this.extractResponseData),
+    catchError(this.handleError)
+  );
 }
 // API PUT Edit a User's info
 editUser(userDetails:any): Observable<any> {
@@ -111,8 +141,12 @@ editUser(userDetails:any): Observable<any> {
   return this.http.put(apiUrl + `users/${username}`, userDetails,  {
     headers: new HttpHeaders({
       Authorization: `Bearer ${token}`,
-    })}).pipe(map(this.extractResponseData), catchError(this.handleError));
-
+    })
+  })
+  .pipe(
+    map(this.extractResponseData),
+    catchError(this.handleError)
+  );
 }
 // API DELETE a User
 deleteUser(): Observable<any> {
@@ -121,8 +155,12 @@ deleteUser(): Observable<any> {
   return this.http.delete(apiUrl + `users/${username}`, {
     headers: new HttpHeaders({
       Authorization: `Bearer ${token}`,
-    })}).pipe(map(this.extractResponseData), catchError(this.handleError));
-
+    })
+  })
+  .pipe(
+    map(this.extractResponseData),
+    catchError(this.handleError)
+  );
 }
 // API DELETE a movie from User's Favorite movies
 removeFavoriteMovie(userDetails:any): Observable<any> {
@@ -131,8 +169,12 @@ removeFavoriteMovie(userDetails:any): Observable<any> {
   return this.http.delete(apiUrl + `users/${username}/movies/${movieId}`,  {
     headers: new HttpHeaders({
       Authorization: `Bearer ${token}`,
-    })}).pipe(map(this.extractResponseData), catchError(this.handleError));
-
+    })
+  })
+  .pipe(
+    map(this.extractResponseData),
+    catchError(this.handleError)
+  );
 }
 // Non-typed response extraction
   private extractResponseData(res: Response): any {
