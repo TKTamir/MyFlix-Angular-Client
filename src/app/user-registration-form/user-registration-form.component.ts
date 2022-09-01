@@ -23,7 +23,7 @@ export class UserRegistrationFormComponent implements OnInit {
 
   constructor(
     public fetchApiData: FetchApiDataService,
-    public dilaogReg: MatDialogRef<UserRegistrationFormComponent>,
+    public dialogRef: MatDialogRef<UserRegistrationFormComponent>,
     public snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
@@ -35,7 +35,7 @@ export class UserRegistrationFormComponent implements OnInit {
   this.fetchApiData.userRegistration(this.userData).subscribe((response) => {
 // Logic for a successful user registration goes here! (To be implemented)
    // Logic for a successful user registration goes here! (To be implemented)
-    this['dialogRef'].close(); // This will close the modal on success!
+    this.dialogRef.close(); // This will close the modal on success!
    this.snackBar.open(response, 'OK', {
       duration: 2000
    });
