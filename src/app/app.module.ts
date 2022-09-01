@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 
 //Import HttpClientModule to make it possible for the client app to communicate with the API
 import { HttpClientModule } from '@angular/common/http';
@@ -49,6 +50,7 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     MatDialogModule,
     MatSnackBarModule,
+    MatIconModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
