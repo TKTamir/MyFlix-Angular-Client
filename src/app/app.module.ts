@@ -22,6 +22,7 @@ import { UserLoginFormComponent } from './user-login-form/user-login-form.compon
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { ProfileViewComponent } from './profile-view/profile-view.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 //Define the routes for the app
 const appRoutes: Routes = [
@@ -38,7 +39,8 @@ const appRoutes: Routes = [
     UserLoginFormComponent,
     MovieCardComponent,
     WelcomePageComponent,
-    ProfileViewComponent
+    ProfileViewComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,
