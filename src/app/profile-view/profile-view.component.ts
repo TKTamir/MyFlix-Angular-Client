@@ -19,6 +19,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile-view.component.scss']
 })
 export class ProfileViewComponent implements OnInit {
+
+  user: any = {};
+
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog,
@@ -26,6 +29,47 @@ export class ProfileViewComponent implements OnInit {
     private router: Router
     ) { }
   ngOnInit(): void {
+    this.getUser(); // Fire the get user function when the component has loaded
+  }
+
+  // Function to get the user data from the api via fetchApiData
+  getUser(): void {
+    this.fetchApiData.getUser().subscribe((response: any) => {
+      this.user = response;
+      console.log(this.user);
+      return this.user;
+    });
+  }
+
+  // Function to open the dialog and allow the user to edit their profile details
+  openEditProfileDialog(): void {
+    this.dialog.open(this.openEditProfileComponent, {
+      width: '300px',
+    });
+  }
+
+  // Function to delet user profile
+  deleteProfile(): void {
+    if (
+      confirm(
+        'Are you sure you want to delete your account? This action cannot be undone.'
+
+      )
+    ) { //Navigate user back to welcome after deleting the user
+      this.router.navigate(['welcome']).then(() => {
+        this.snackBar.open(
+          'You have successfully deleted your account!',
+          'OK',
+          {
+            duration: 2000,
+          }
+        );
+      });
+      this.fetchApiData.deleteUser().subscribe((result) => {
+        console.log(result);
+        localStorage.clear();
+      });
+    }
   }
 
 }
