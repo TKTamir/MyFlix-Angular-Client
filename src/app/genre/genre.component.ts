@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 
 // Mat-dialog-data allows to inject data from the MovieCard component
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -11,7 +11,13 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class GenreComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    @Inject(MAT_DIALOG_DATA)
+    public data: {
+      Name: string,
+      Description: string,
+    }
+  ) { }
 
   ngOnInit(): void {
   }
