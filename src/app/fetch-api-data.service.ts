@@ -57,7 +57,7 @@ getAllMovies(): Observable<any> {
 // API GET a single movie endpoint
 getMovie(movieId: any): Observable<any> {
   const token = localStorage.getItem('token');
-  return this.http.get(apiUrl + `movies/:${movieId}`, {headers: new HttpHeaders(
+  return this.http.get(apiUrl + `movies/${movieId}`, {headers: new HttpHeaders(
     {
       Authorization: 'Bearer ' + token,
     })
@@ -83,7 +83,7 @@ getDirector(): Observable<any> {
 // API GET Genre enpoint
 getGenre(): Observable<any> {
   const token = localStorage.getItem('token');
-  return this.http.get(apiUrl + `movies/genre/:${name}`, {headers: new HttpHeaders(
+  return this.http.get(apiUrl + `movies/genre/${name}`, {headers: new HttpHeaders(
     {
       Authorization: 'Bearer ' + token,
     })
@@ -108,9 +108,10 @@ getUser(): Observable<any> {
   );
 }
 // API GET User's Favorite Movie
-getFavorite(movieId: any): Observable<any> {
+getFavorite(): Observable<any> {
   const token = localStorage.getItem('token');
-  return this.http.get(apiUrl + `movies/:${movieId}`, {headers: new HttpHeaders(
+  const username = localStorage.getItem('user');
+  return this.http.get(apiUrl + `users/${username}/movies`, {headers: new HttpHeaders(
     {
       Authorization: 'Bearer ' + token,
     })
