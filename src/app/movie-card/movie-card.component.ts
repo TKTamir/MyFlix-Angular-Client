@@ -6,8 +6,7 @@ import { DirectorComponent } from '../director/director.component';
 import { SynopsisComponent } from '../synopsis/synopsis.component';
 
 import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-movie-card',
   templateUrl: './movie-card.component.html',
