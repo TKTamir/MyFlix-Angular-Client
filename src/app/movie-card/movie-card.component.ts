@@ -66,7 +66,6 @@ openDirectorDialog(name: string, bio: string, birth: Date, death: Date): void {
       Name: name,
       Bio: bio,
       Birth: birth,
-      Death: death,
     },
     // Assign dialog width
     width: '400px'
