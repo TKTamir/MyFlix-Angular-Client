@@ -1,13 +1,19 @@
 .user-profile-view{
     display: flex;
     text-align: center;
+    height: 100%;
 }
 
 .user-profile-card{
     width: 100%;
+    
 }
 
 .user-profile-card-header {
     display: flex;
     justify-content: center;
+}
+
+* {
+    background-color: #f5f0f0;
 }
