@@ -13,6 +13,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 //This import is used to import Angulars Router
 import { Router } from '@angular/router';
 
+// Importing EditProfile Component
+import { EditProfileComponent } from '../edit-profile/edit-profile.component';
+
+
 @Component({
   selector: 'app-profile-view',
   templateUrl: './profile-view.component.html',
@@ -43,7 +47,7 @@ export class ProfileViewComponent implements OnInit {
 
   // Function to open the dialog and allow the user to edit their profile details
   openEditProfileDialog(): void {
-    this.dialog.open(this.openEditProfileComponent, {
+    this.dialog.open(EditProfileComponent, {
       width: '300px',
     });
   }
