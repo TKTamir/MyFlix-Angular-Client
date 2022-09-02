@@ -1,4 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+// src/app/user-registration-form/user-registration-form.component.ts
+import { Component, OnInit, Input } from '@angular/core';
+
+// You'll use this import to close the dialog on success
+import { MatDialogRef } from '@angular/material/dialog';
+
+// This import brings in the API calls we created in 6.2
+import { FetchApiDataService } from '../fetch-api-data.service';
+
+// This import is used to display notifications back to the user
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+//This import is used to import Angulars Router
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-edit-profile',
@@ -7,9 +21,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditProfileComponent implements OnInit {
 
-  constructor() { }
+  @Input() userData: any = {};
+
+   constructor(
+    public fetchApiData: FetchApiDataService,
+    public dialogRef: MatDialogRef<EditProfileComponent>,
+    public snackBar: MatSnackBar,
+    public router: Router
+  ) {}
 
   ngOnInit(): void {
+  }
+
+  editUser(): void {
+    console.log(this.userData);
+    this.fetchApiData.editUser(this.userData).subscribe((result) => {
+      this.dialogRef.close();
+      console.log(result);
+      this.snackBar.open('Profile was successfully updated!', 'OK', {
+        duration: 2000,
+      });
+      // Redirect users to login screen after changing the credentials
+      if (this.userData.Username || this.userData.Password) {
+        localStorage.clear();
+        this.router.navigate(['welcome']);
+        this.snackBar.open(
+          'Please use your credentials to login.',
+          'OK',
+          {
+            duration: 2000,
+          }
+        );
+      }
+    });
   }
 
 }
