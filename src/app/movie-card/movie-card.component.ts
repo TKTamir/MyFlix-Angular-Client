@@ -19,8 +19,8 @@ ngOnInit(): void {
 }
 //Function calls the api with FetchApiData and getAllMovies and returns the movies in the state of this.movies
 getMovies(): void {
-  this.fetchApiData.getAllMovies().subscribe((resp: any) => {
-      this.movies = resp;
+  this.fetchApiData.getAllMovies().subscribe((response: any) => {
+      this.movies = response;
       console.log(this.movies);
       return this.movies;
     });
