@@ -9,6 +9,8 @@ import { FetchApiDataService } from '../fetch-api-data.service'
 })
 export class MovieCardComponent {
   movies: any[] = []; //Movies returned from the API will be stored here, similiar to State in React
+  favoriteMovies: any[] = [];
+
   constructor(public fetchApiData: FetchApiDataService) { } //FetchApiDatService calls the api and returns movies.
 
   //Lifecycle hook that's being called with the getMovies function after Angular finishes creating the component
@@ -23,4 +25,15 @@ getMovies(): void {
       return this.movies;
     });
   }
+
+  getFavoriteMovies(): void {
+    this.fetchApiData.getFavorite().subscribe((response: any) => {
+      this.favoriteMovies = response;
+      console.log(this.favoriteMovies);
+      return this.favoriteMovies;
+    });
+  }
+
+
 }
+
