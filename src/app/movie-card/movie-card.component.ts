@@ -45,7 +45,7 @@ getMovies(): void {
 
 // Function checks if a movie is included in the FavoriteMovies array
 isFav(id: string): boolean {
-  return this.favoriteMovies.includes(id)
+  return this.favoriteMovies.includes(id);
 }
 
 // Function opens the Genre dialog and displays its details
