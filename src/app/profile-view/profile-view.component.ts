@@ -1,8 +1,8 @@
 // src/app/user-registration-form/user-registration-form.component.ts
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 // You'll use this import to close the dialog on success
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 // This import brings in the API calls we created in 6.2
 import { FetchApiDataService } from '../fetch-api-data.service';
@@ -21,7 +21,7 @@ import { Router } from '@angular/router';
 export class ProfileViewComponent implements OnInit {
   constructor(
     public fetchApiData: FetchApiDataService,
-    public dialogRef: MatDialogRef,
+    public dialog: MatDialog,
     public snackBar: MatSnackBar,
     private router: Router
     ) { }
