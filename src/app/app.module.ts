@@ -21,6 +21,7 @@ import { UserRegistrationFormComponent } from './user-registration-form/user-reg
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { ProfileViewComponent } from './profile-view/profile-view.component';
 
 //Define the routes for the app
 const appRoutes: Routes = [
@@ -36,7 +37,8 @@ const appRoutes: Routes = [
     UserRegistrationFormComponent,
     UserLoginFormComponent,
     MovieCardComponent,
-    WelcomePageComponent
+    WelcomePageComponent,
+    ProfileViewComponent
   ],
   imports: [
     BrowserModule,
