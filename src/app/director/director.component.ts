@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-director',
@@ -7,7 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DirectorComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    @Inject(MAT_DIALOG_DATA)
+    public data: {
+      Name: string,
+      Bio: string,
+      Birth: Date,
+    }
+  ) { }
 
   ngOnInit(): void {
   }
