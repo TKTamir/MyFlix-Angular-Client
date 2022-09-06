@@ -5,8 +5,7 @@ Welcome to MyFlix, an interactive database for movies.
 
 
 ## Screenshot
-
-![image](https://user-images.githubusercontent.com/104828119/188664355-c515e8c6-8218-4a08-ab2d-9f3ed2a24a5d.png)
+![image](https://user-images.githubusercontent.com/104828119/188664481-c22eb550-a327-4ea9-bc86-026427550143.png)
 
 ## Tech Tools  
 ● HTML5  
