@@ -16,17 +16,19 @@ export class NavbarComponent implements OnInit {
   }
 
   /* Navigation Routes */
-
-  //Navigate to Movies Page
+  
+  /** Navigate to Movies Page */
   navMovies(): void {
     this.router.navigate(['movies']);
   }
-  //Navgiate to User Profile Page
+
+  //** Navgiate to User Profile Page*/
   navUserProfile(): void {
     this.router.navigate(['profile']);
   }
-  // Logout function that's called by the Logout button
 
+  
+  /** Logout function that's called by the Logout button */
   logOut(): void {
     localStorage.clear();
     this.router.navigate(['welcome']);

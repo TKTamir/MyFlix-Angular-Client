@@ -26,7 +26,12 @@ export class MovieCardComponent {
 ngOnInit(): void {
   this.getMovies();
 }
-//Function calls the api and returns the movies in the state of this.movies
+
+/**
+ * Function calls the api and returns the movies using fetchApiData
+ * @returns array of movies objects
+ * @function getMovies
+ */
 getMovies(): void {
   this.fetchApiData.getAllMovies().subscribe((response: any) => {
       this.movies = response;
@@ -34,7 +39,12 @@ getMovies(): void {
       return this.movies;
     });
   }
-// Function calls the api and returns the FavoriteMovies array
+
+ /**
+  * Function calls the api and returns the FavoriteMovies array using fetchApiData
+  * @returns array of favorite movie ids
+  * @function getFavoriteMovies
+  */
   getFavoriteMovies(): void {
     this.fetchApiData.getFavorite().subscribe((response: any) => {
       this.favoriteMovies = response;
@@ -43,12 +53,24 @@ getMovies(): void {
     });
   }
 
-// Function checks if a movie is included in the FavoriteMovies array
+
+/**
+   * Function checks if a movie is included in the FavoriteMovies array
+   * @param id
+   * @returns true if the movie is in the array
+   * @function isFav
+   */
 isFav(id: string): boolean {
   return this.favoriteMovies.includes(id);
 }
 
-// Function opens the Genre dialog and displays its details
+
+/**
+    * Function opens the Genre dialog and displays its details
+    * @param name 
+    * @param description 
+    * @function openGenreDialog
+    */
 openGenreDialog(name: string, description: string): void {
   this.dialog.open(GenreComponent, {
     data: {
@@ -59,7 +81,14 @@ openGenreDialog(name: string, description: string): void {
   });
 }
 
-//Function opens the Director dialog and displays its details
+
+/**
+   * Function opens the Director dialog and displays its details
+   * @param name 
+   * @param bio 
+   * @param birth 
+   * @function openDirectorDialog
+   */
 openDirectorDialog(name: string, bio: string, birth: Date, death: Date): void {
   this.dialog.open(DirectorComponent, {
     data: {
@@ -72,7 +101,13 @@ openDirectorDialog(name: string, bio: string, birth: Date, death: Date): void {
   });
 }
 
-//Function to open the Synopsis dialog and show the movies details
+
+/**
+   * Open Function to open the Synopsis dialog and show the movies details
+   * @param title 
+   * @param description 
+   * @function openSynopsisDialog
+   */
 openSynopsisDialog(title: string, description: string): void {
   this.dialog.open(SynopsisComponent, {
     data: {
@@ -84,7 +119,12 @@ openSynopsisDialog(title: string, description: string): void {
   });
 }
 
-//Function to add a movie to users favorites
+
+/**
+   * Function to add a movie to users favorites
+   * @param id 
+   * @function addToFavoriteMovies
+   */
 addToFavoriteMovies(id: string): void {
   console.log(id);
   this.fetchApiData.addFavoriteMovie(id).subscribe((result) => {
@@ -93,7 +133,12 @@ addToFavoriteMovies(id: string): void {
   })
 }
 
-//Function to remove a movie from users favorites
+
+/**
+   * Function to remove a movie from users favorites
+   * @param id 
+   * @function removeFromFavoriteMovie
+   */
 removeFromFavoriteMovies(id: string): void {
   console.log(id);
   this.fetchApiData.removeFavoriteMovie(id).subscribe((result) => {

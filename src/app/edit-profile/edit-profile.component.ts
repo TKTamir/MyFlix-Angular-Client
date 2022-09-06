@@ -33,6 +33,11 @@ export class EditProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+  * Call the API sending a POST request with the new parameters to update the user profile
+   * If user data is changed, reroute the user to the welcome screen
+   * @function editUser 
+ */
   editUser(): void {
     console.log(this.userData);
     this.fetchApiData.editUser(this.userData).subscribe((result) => {

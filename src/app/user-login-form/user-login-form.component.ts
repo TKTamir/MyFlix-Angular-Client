@@ -33,7 +33,11 @@ export class UserLoginFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-   // This is the function responsible for sending the form inputs to the backend
+/**
+ *  Function sends the form inputs to the backend by using fetchApiData
+ *  When login is successful reroute the user to /movies endpoint
+ * @function loginUser
+ */
 loginUser(): void {
   this.fetchApiData.userLogin(this.userData).subscribe((response) => {
     localStorage.setItem('user', response.user.Username);
