@@ -25,6 +25,7 @@ export class MovieCardComponent {
   //Lifecycle hook that's being called with the getMovies function after Angular finishes creating the component
 ngOnInit(): void {
   this.getMovies();
+  this.getFavoriteMovies();
 }
 
 /**
@@ -129,6 +130,7 @@ addToFavoriteMovies(id: string): void {
   console.log(id);
   this.fetchApiData.addFavoriteMovie(id).subscribe((result) => {
     console.log(result);
+    alert("The movie was added to your Favorite Movies List")
     this.ngOnInit();
   })
 }
@@ -143,6 +145,7 @@ removeFromFavoriteMovies(id: string): void {
   console.log(id);
   this.fetchApiData.removeFavoriteMovie(id).subscribe((result) => {
     console.log(result);
+    alert("The movie was removed from your Favorite Movies List")
     this.ngOnInit();
   })
 }
