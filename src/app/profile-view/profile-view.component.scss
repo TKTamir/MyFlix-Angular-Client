@@ -1,5 +1,5 @@
 .user-profile-view{
-    display: flex;
+    display: block;
     text-align: center;
     height: 100%;
 }
@@ -16,4 +16,22 @@
 
 * {
     background-color: #f5f0f0;
+
+}
+.user-fav-movies-card-container{
+    width: 100%;
+    justify-content: center;
+}
+
+.user-fav-movies-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+mat-card-header {
+    display: flex;
+    justify-content: center;
+
 }
