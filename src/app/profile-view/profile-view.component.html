@@ -31,4 +31,19 @@
       </button>
     </mat-card-actions>
   </mat-card>
+
+  <!-- Favorite Movies  -->
+  <mat-card class="user-fav-movies-card">
+    <mat-card-header class="user-fav-movies-card-header">
+      <mat-card-title>Profile Information</mat-card-title>
+    </mat-card-header>
+
+    <!-- View Profile Information -->
+    <mat-card-content class="user-fav-movies-card-content">
+      <p><b>Favorite Movies:</b> {{ user.FavoriteMovies }}</p>
+    </mat-card-content>
+
+    <!-- Edit Profile Information and Delete Profile  -->
+    <mat-card-actions class="user-fav-movie-actions"> </mat-card-actions>
+  </mat-card>
 </div>
