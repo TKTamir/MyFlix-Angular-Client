@@ -25,6 +25,7 @@ import { EditProfileComponent } from '../edit-profile/edit-profile.component';
 export class ProfileViewComponent implements OnInit {
 
   user: any = {};
+  favMovies: any = [];
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -34,6 +35,7 @@ export class ProfileViewComponent implements OnInit {
     ) { }
   ngOnInit(): void {
     this.getUser(); // Fire the get user function when the component has loaded
+    this.getFavMovies();
   }
 
   
@@ -45,8 +47,16 @@ export class ProfileViewComponent implements OnInit {
   getUser(): void {
     this.fetchApiData.getUser().subscribe((response: any) => {
       this.user = response;
-      console.log(this.user);
+      console.log("User", this.user);
       return this.user;
+    });
+  }
+
+  getFavMovies(): void {
+    this.fetchApiData.getAllMovies().subscribe((response: any) => {
+      this.favMovies = response.filter((m: any) => this.user.FavoriteMovies.includes(m._id))
+      console.log("FavMovies", this.favMovies);
+      return this.favMovies;
     });
   }
 
