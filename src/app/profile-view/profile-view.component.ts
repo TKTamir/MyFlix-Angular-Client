@@ -16,6 +16,8 @@ import { Router } from '@angular/router';
 // Importing EditProfile Component
 import { EditProfileComponent } from '../edit-profile/edit-profile.component';
 
+import { MovieCardComponent } from '../movie-card/movie-card.component';
+
 
 @Component({
   selector: 'app-profile-view',
@@ -31,7 +33,8 @@ export class ProfileViewComponent implements OnInit {
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog,
     public snackBar: MatSnackBar,
-    private router: Router
+    private router: Router,
+    public movieCard: MovieCardComponent
     ) { }
   ngOnInit(): void {
     this.getUser(); // Fire the get user function when the component has loaded
@@ -99,4 +102,5 @@ export class ProfileViewComponent implements OnInit {
     }
   }
 
+  
 }

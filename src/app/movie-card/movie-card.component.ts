@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service'
 
 import { GenreComponent } from '../genre/genre.component';
@@ -7,6 +7,10 @@ import { SynopsisComponent } from '../synopsis/synopsis.component';
 
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+
+@Injectable ({
+  providedIn: 'root'
+})
 @Component({
   selector: 'app-movie-card',
   templateUrl: './movie-card.component.html',
