@@ -44,7 +44,7 @@ loginUser(): void {
     localStorage.setItem('token', response.token);
 // Logic for a successful user registration goes here! (To be implemented)
    this.dialogRef.close(); // This will close the modal on success!
-   this.snackBar.open(response, 'OK', {
+   this.snackBar.open('You have successfully logged in.', 'OK', {
       duration: 2000
    });
    this.router.navigate(['movies']);
